@@ -26,7 +26,6 @@ public class BaseResult implements Serializable {
     }
 
 
-
     public Integer getCode() {
         return code;
     }

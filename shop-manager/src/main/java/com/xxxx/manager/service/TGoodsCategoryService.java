@@ -23,4 +23,10 @@ public interface TGoodsCategoryService extends IService<TGoodsCategory>{
     List<TGoodsCategory> selectCategoryByParentId(Short parentId);
 
 
+    /**
+     * 保存分类
+     * @param goodsCategory
+     * @return
+     */
+    boolean saveGoodsCategory(TGoodsCategory goodsCategory);
 }

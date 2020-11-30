@@ -42,4 +42,15 @@
     where parent_id = #{parentId}
 
   </select>
+
+  <insert id="saveGoodsCategory" parameterType="TGoodsCategory">
+    insert into t_goods_category
+    (name, mobile_name, parent_id, parent_id_path, level, sort_order, is_show, image, is_hot, cat_group, commission_rate)
+    values (#{name},#{mobileName}, #{parentId},
+    #{parentIdPath},#{level},#{sortOrder},#{isShow},#{image},#{isHot},#{catGroup},#{commissionRate}
+                   )
+
+  </insert>
+
+
 </mapper>

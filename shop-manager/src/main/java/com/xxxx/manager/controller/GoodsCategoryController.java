@@ -76,8 +76,9 @@ public class GoodsCategoryController {
      */
     @ResponseBody
     @RequestMapping("category/save")
-    public BaseResult selectList(@RequestBody TGoodsCategory goodsCategory) {
-        boolean b = goodsCategoryService.save(goodsCategory);
+    public BaseResult selectList(TGoodsCategory goodsCategory) {
+        System.out.println(goodsCategory);
+        boolean b = goodsCategoryService.saveGoodsCategory(goodsCategory);
         return b ? BaseResult.success() : BaseResult.error();
     }
 

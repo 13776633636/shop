@@ -14,4 +14,11 @@ public interface TGoodsCategoryMapper extends BaseMapper<TGoodsCategory> {
     * 商品分类-新增分类-级联查询
     * */
     List<TGoodsCategory> selectCategoryByParentId(Short parentId);
+
+    /**
+     * 保存分类
+     * @param goodsCategory
+     * @return
+     */
+    int saveGoodsCategory(TGoodsCategory goodsCategory);
 }

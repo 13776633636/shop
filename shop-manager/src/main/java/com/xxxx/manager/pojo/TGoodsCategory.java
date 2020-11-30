@@ -1,5 +1,8 @@
 package com.xxxx.manager.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,6 +11,7 @@ public class TGoodsCategory implements Serializable {
     /**
      * 商品分类id
      */
+    @TableId(value = "id",type = IdType.AUTO)
     private Short id;
 
     /**
