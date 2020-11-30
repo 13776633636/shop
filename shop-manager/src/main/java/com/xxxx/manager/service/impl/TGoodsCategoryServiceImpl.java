@@ -47,8 +47,9 @@ public class TGoodsCategoryServiceImpl extends ServiceImpl<TGoodsCategoryMapper,
 
     }
 
-    /*查询所有顶级分类
-     * */
+    /**
+     * 查询所有顶级分类
+     */
     @Override
     public List<TGoodsCategory> selectCategoryTopList() {
         List<TGoodsCategory> list = goodsCategoryMapper.selectCategoryTopList();
@@ -63,4 +64,6 @@ public class TGoodsCategoryServiceImpl extends ServiceImpl<TGoodsCategoryMapper,
         List<TGoodsCategory> list = goodsCategoryMapper.selectCategoryByParentId(parentId);
         return list;
     }
+
+
 }

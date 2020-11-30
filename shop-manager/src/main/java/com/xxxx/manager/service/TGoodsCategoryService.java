@@ -9,13 +9,18 @@ public interface TGoodsCategoryService extends IService<TGoodsCategory>{
 
     List<TGoodsCategory> listCategoryService();
 
-    /*查询顶级分类
-    * */
+    /**
+     * 查询顶级分类
+     * @return
+     */
     List<TGoodsCategory> selectCategoryTopList();
 
-    /*
+
+    /**
      * 商品分类-新增分类-级联查询
-     * */
+     *
+     */
     List<TGoodsCategory> selectCategoryByParentId(Short parentId);
+
 
 }
