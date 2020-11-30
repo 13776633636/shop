@@ -22,4 +22,24 @@
     id, `name`, mobile_name, parent_id, parent_id_path, `level`, sort_order, is_show, 
     image, is_hot, cat_group, commission_rate
   </sql>
+
+
+
+  <select id="listCategoryService" resultType="com.xxxx.manager.pojo.TGoodsCategory">
+    select t1.*
+    from t_goods_category t1
+  </select>
+
+  <select id="selectCategoryTopList" parameterType="Integer" resultType="com.xxxx.manager.pojo.TGoodsCategory">
+    select <include refid="Base_Column_List"/>
+    from t_goods_category
+    where parent_id = 0
+  </select>
+
+  <select id="selectCategoryByParentId" parameterType="Short" resultType="TGoodsCategory">
+    select *
+    from t_goods_category
+    where parent_id = #{parentId}
+
+  </select>
 </mapper>

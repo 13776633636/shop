@@ -33,11 +33,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-        <!-- mybatis 依赖 -->
+        <!-- mybatis-plus 依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-
         </dependency>
         <!-- mysql 数据库依赖 -->
         <dependency>

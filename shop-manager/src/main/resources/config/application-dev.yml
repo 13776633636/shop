@@ -69,4 +69,4 @@ mybatis-plus:
   type-aliases-package: com.xxxx.manager.pojo
   configuration:
     # 自动驼峰命名
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
