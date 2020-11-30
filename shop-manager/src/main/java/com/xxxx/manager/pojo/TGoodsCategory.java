@@ -8,6 +8,30 @@ import java.util.List;
 
 
 public class TGoodsCategory implements Serializable {
+
+    /**
+     * 查询用的字段
+     *
+     */
+    private  Short parent_id_1;
+    private  Short parent_id_2;
+
+    public Short getParent_id_1() {
+        return parent_id_1;
+    }
+
+    public void setParent_id_1(Short parent_id_1) {
+        this.parent_id_1 = parent_id_1;
+    }
+
+    public Short getParent_id_2() {
+        return parent_id_2;
+    }
+
+    public void setParent_id_2(Short parent_id_2) {
+        this.parent_id_2 = parent_id_2;
+    }
+
     /**
      * 商品分类id
      */

@@ -21,4 +21,6 @@ public interface TGoodsCategoryMapper extends BaseMapper<TGoodsCategory> {
      * @return
      */
     int saveGoodsCategory(TGoodsCategory goodsCategory);
+
+    int updateParentIdPathById(TGoodsCategory goodsCategory);
 }

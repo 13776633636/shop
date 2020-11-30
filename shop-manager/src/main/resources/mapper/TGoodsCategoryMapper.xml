@@ -43,7 +43,11 @@
 
   </select>
 
-  <insert id="saveGoodsCategory" parameterType="TGoodsCategory">
+  <insert id="saveGoodsCategory" parameterType="TGoodsCategory" keyProperty="id" useGeneratedKeys="true">
+    <selectKey resultType="Short" order="AFTER" keyProperty="id">
+      select LAST_INSERT_ID()
+    </selectKey>
+
     insert into t_goods_category
     (name, mobile_name, parent_id, parent_id_path, level, sort_order, is_show, image, is_hot, cat_group, commission_rate)
     values (#{name},#{mobileName}, #{parentId},
@@ -52,5 +56,9 @@
 
   </insert>
 
-
+  <update id="updateParentIdPathById">
+    update t_goods_category
+    set parent_id_path = #{parentIdPath}
+    where id = #{id}
+  </update>
 </mapper>
