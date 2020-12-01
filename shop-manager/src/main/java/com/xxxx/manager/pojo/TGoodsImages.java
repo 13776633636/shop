@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName(value = "t_goods_images")
 public class TGoodsImages {
+
     /**
      * 图片id 自增
      */

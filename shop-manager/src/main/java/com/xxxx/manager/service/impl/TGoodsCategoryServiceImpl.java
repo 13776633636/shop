@@ -1,20 +1,17 @@
 package com.xxxx.manager.service.impl;
 
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xxxx.manager.mapper.TGoodsCategoryMapper;
+import com.xxxx.manager.pojo.TGoodsCategory;
+import com.xxxx.manager.service.TGoodsCategoryService;
 import com.xxxx.manager.utils.AssertUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
-
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xxxx.manager.pojo.TGoodsCategory;
-import com.xxxx.manager.mapper.TGoodsCategoryMapper;
-import com.xxxx.manager.service.TGoodsCategoryService;
 
 
 @Service
@@ -94,8 +91,14 @@ public class TGoodsCategoryServiceImpl extends ServiceImpl<TGoodsCategoryMapper,
         //0_p1_p2_当前id
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("0_");
-        stringBuilder.append(goodsCategory.getParentId() + "_");
-        stringBuilder.append(goodsCategory.getParent_id_2()+"_");
+        short s1 = goodsCategory.getParentId();
+        if (s1!=0){
+            stringBuilder.append(s1 + "_");
+        }
+        short s2 = goodsCategory.getParent_id_2();
+        if (s2!=0){
+            stringBuilder.append(s2+"_");
+        }
         stringBuilder.append(goodsCategory.getId());
         goodsCategory.setParentIdPath(stringBuilder.toString());
         System.out.println(stringBuilder);
