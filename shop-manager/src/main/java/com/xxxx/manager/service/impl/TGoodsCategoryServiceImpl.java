@@ -2,6 +2,7 @@ package com.xxxx.manager.service.impl;
 
 
 import com.xxxx.manager.utils.AssertUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,7 +83,8 @@ public class TGoodsCategoryServiceImpl extends ServiceImpl<TGoodsCategoryMapper,
         }
         AssertUtils.isTrue(goodsCategory.getSortOrder() < 0 | goodsCategory.getSortOrder() > 100, "请输入0-100之间的显示排序！", 500);
         AssertUtils.isTrue(goodsCategory.getIsShow() == null, "是否展示不能为空", 500);
-        AssertUtils.isTrue(goodsCategory.getName() == null, "分类名称不能为空", 500);
+        AssertUtils.isTrue(StringUtils.isBlank(goodsCategory.getName()), "分类名称不能为空", 500);
+        AssertUtils.isTrue(StringUtils.isBlank(goodsCategory.getMobileName()), "手机分类名称不能为空", 500);
         if (goodsCategory.getIsHot() == null) {
             goodsCategory.setIsHot((byte) 1);//默认设置为1
         }
