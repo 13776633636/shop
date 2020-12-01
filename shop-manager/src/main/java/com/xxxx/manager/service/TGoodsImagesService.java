@@ -1,6 +1,7 @@
 package com.xxxx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.result.FileResult;
 import com.xxxx.manager.pojo.TGoodsImages;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,4 +17,6 @@ public interface TGoodsImagesService extends IService<TGoodsImages>{
      * @return
      */
     FileResult fileUpload(MultipartFile image, HttpServletRequest request);
+
+    BaseResult saveImages(MultipartFile image, Integer goodsId, HttpServletRequest request);
 }

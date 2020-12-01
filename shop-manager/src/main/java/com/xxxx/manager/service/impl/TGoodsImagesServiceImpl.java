@@ -1,6 +1,7 @@
 package com.xxxx.manager.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.result.FileResult;
 import com.xxxx.manager.mapper.TGoodsImagesMapper;
 import com.xxxx.manager.pojo.TGoodsImages;
@@ -17,6 +18,7 @@ import java.util.UUID;
 
 @Service
 public class TGoodsImagesServiceImpl extends ServiceImpl<TGoodsImagesMapper, TGoodsImages> implements TGoodsImagesService {
+
 
     @Override
     public FileResult fileUpload(MultipartFile image, HttpServletRequest request) {
@@ -35,11 +37,25 @@ public class TGoodsImagesServiceImpl extends ServiceImpl<TGoodsImagesMapper, TGo
         String imageName = UUID.randomUUID().toString();
         //以流的形式上传文件，返回message
         String message = QiniuCloudUtil.uploadImgByInputStream(inputStream, imageName);
-        if (!"上传失败".equals(message)){
+        if (!"上传失败".equals(message)) {
             fileResult.setMessage("");
             fileResult.setSuccess("");
             fileResult.setFileUrl(message);
         }
         return fileResult;
     }
+
+    @Override
+    public BaseResult saveImages(MultipartFile image, Integer goodsId, HttpServletRequest request) {
+        FileResult fileResult = fileUpload(image, request);
+        String fileUrl = fileResult.getFileUrl();
+
+        TGoodsImages goodsImages = new TGoodsImages();
+        goodsImages.setImageUrl(fileUrl);
+        goodsImages.setGoodsId(goodsId);
+
+        return this.save(goodsImages) ? BaseResult.success() : BaseResult.error();
+    }
+
+
 }
