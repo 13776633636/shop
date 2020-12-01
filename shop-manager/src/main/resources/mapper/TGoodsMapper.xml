@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxxx.manager.mapper.TGoodsMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.manager.pojo.TGoods">
+    <!--@mbg.generated-->
+    <!--@Table t_goods-->
+    <id column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="cat_id" jdbcType="INTEGER" property="catId" />
+    <result column="extend_cat_id" jdbcType="INTEGER" property="extendCatId" />
+    <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="brand_id" jdbcType="SMALLINT" property="brandId" />
+    <result column="store_count" jdbcType="SMALLINT" property="storeCount" />
+    <result column="comment_count" jdbcType="SMALLINT" property="commentCount" />
+    <result column="weight" jdbcType="INTEGER" property="weight" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="shop_price" jdbcType="DECIMAL" property="shopPrice" />
+    <result column="cost_price" jdbcType="DECIMAL" property="costPrice" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="goods_remark" jdbcType="VARCHAR" property="goodsRemark" />
+    <result column="goods_content" jdbcType="LONGVARCHAR" property="goodsContent" />
+    <result column="original_img" jdbcType="VARCHAR" property="originalImg" />
+    <result column="is_real" jdbcType="TINYINT" property="isReal" />
+    <result column="is_on_sale" jdbcType="BOOLEAN" property="isOnSale" />
+    <result column="is_free_shipping" jdbcType="BOOLEAN" property="isFreeShipping" />
+    <result column="on_time" jdbcType="INTEGER" property="onTime" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="is_recommend" jdbcType="BOOLEAN" property="isRecommend" />
+    <result column="is_new" jdbcType="BOOLEAN" property="isNew" />
+    <result column="is_hot" jdbcType="BOOLEAN" property="isHot" />
+    <result column="last_update" jdbcType="INTEGER" property="lastUpdate" />
+    <result column="goods_type" jdbcType="SMALLINT" property="goodsType" />
+    <result column="spec_type" jdbcType="SMALLINT" property="specType" />
+    <result column="give_integral" jdbcType="INTEGER" property="giveIntegral" />
+    <result column="exchange_integral" jdbcType="INTEGER" property="exchangeIntegral" />
+    <result column="suppliers_id" jdbcType="SMALLINT" property="suppliersId" />
+    <result column="sales_sum" jdbcType="INTEGER" property="salesSum" />
+    <result column="prom_type" jdbcType="BOOLEAN" property="promType" />
+    <result column="prom_id" jdbcType="INTEGER" property="promId" />
+    <result column="commission" jdbcType="DECIMAL" property="commission" />
+    <result column="spu" jdbcType="VARCHAR" property="spu" />
+    <result column="sku" jdbcType="VARCHAR" property="sku" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    goods_id, cat_id, extend_cat_id, goods_sn, goods_name, click_count, brand_id, store_count, 
+    comment_count, weight, market_price, shop_price, cost_price, keywords, goods_remark, 
+    goods_content, original_img, is_real, is_on_sale, is_free_shipping, on_time, sort, 
+    is_recommend, is_new, is_hot, last_update, goods_type, spec_type, give_integral, 
+    exchange_integral, suppliers_id, sales_sum, prom_type, prom_id, commission, spu, 
+    sku
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update t_goods
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.catId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="extend_cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.extendCatId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="goods_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsSn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="goods_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="click_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.clickCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="brand_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.brandId,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="store_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.storeCount,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.commentCount,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.weight,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="market_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.marketPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="shop_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.shopPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="cost_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.costPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="keywords = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.keywords,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="goods_remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsRemark,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="goods_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsContent,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="original_img = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.originalImg,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="is_real = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isReal,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_on_sale = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isOnSale,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="is_free_shipping = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isFreeShipping,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="on_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.onTime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.sort,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="is_recommend = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isRecommend,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="is_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isNew,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="is_hot = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isHot,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="last_update = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.lastUpdate,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="goods_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="spec_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.specType,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="give_integral = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.giveIntegral,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="exchange_integral = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.exchangeIntegral,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="suppliers_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.suppliersId,jdbcType=SMALLINT}
+        </foreach>
+      </trim>
+      <trim prefix="sales_sum = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.salesSum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="prom_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.promType,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+      <trim prefix="prom_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.promId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="commission = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.commission,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="spu = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.spu,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sku = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.sku,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where goods_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.goodsId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update t_goods
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.catId != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.catId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extend_cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extendCatId != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.extendCatId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="goods_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.goodsSn != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsSn,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="goods_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.goodsName != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="click_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.clickCount != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.clickCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="brand_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.brandId != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.brandId,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="store_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.storeCount != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.storeCount,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.commentCount != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.commentCount,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.weight != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.weight,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="market_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.marketPrice != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.marketPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="shop_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.shopPrice != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.shopPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="cost_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.costPrice != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.costPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="keywords = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.keywords != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.keywords,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="goods_remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.goodsRemark != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsRemark,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="goods_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.goodsContent != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsContent,jdbcType=LONGVARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="original_img = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.originalImg != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.originalImg,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_real = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isReal != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isReal,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_on_sale = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isOnSale != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isOnSale,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_free_shipping = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isFreeShipping != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isFreeShipping,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="on_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.onTime != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.onTime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sort != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.sort,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_recommend = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isRecommend != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isRecommend,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isNew != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isNew,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_hot = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isHot != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.isHot,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="last_update = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lastUpdate != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.lastUpdate,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="goods_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.goodsType != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.goodsType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="spec_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.specType != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.specType,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="give_integral = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.giveIntegral != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.giveIntegral,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="exchange_integral = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.exchangeIntegral != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.exchangeIntegral,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="suppliers_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.suppliersId != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.suppliersId,jdbcType=SMALLINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sales_sum = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.salesSum != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.salesSum,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="prom_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.promType != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.promType,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="prom_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.promId != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.promId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="commission = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.commission != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.commission,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="spu = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.spu != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.spu,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sku = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sku != null">
+            when goods_id = #{item.goodsId,jdbcType=INTEGER} then #{item.sku,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where goods_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.goodsId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="goods_id" keyProperty="goodsId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_goods
+    (cat_id, extend_cat_id, goods_sn, goods_name, click_count, brand_id, store_count, 
+      comment_count, weight, market_price, shop_price, cost_price, keywords, goods_remark, 
+      goods_content, original_img, is_real, is_on_sale, is_free_shipping, on_time, sort, 
+      is_recommend, is_new, is_hot, last_update, goods_type, spec_type, give_integral, 
+      exchange_integral, suppliers_id, sales_sum, prom_type, prom_id, commission, spu, 
+      sku)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.catId,jdbcType=INTEGER}, #{item.extendCatId,jdbcType=INTEGER}, #{item.goodsSn,jdbcType=VARCHAR}, 
+        #{item.goodsName,jdbcType=VARCHAR}, #{item.clickCount,jdbcType=INTEGER}, #{item.brandId,jdbcType=SMALLINT}, 
+        #{item.storeCount,jdbcType=SMALLINT}, #{item.commentCount,jdbcType=SMALLINT}, #{item.weight,jdbcType=INTEGER}, 
+        #{item.marketPrice,jdbcType=DECIMAL}, #{item.shopPrice,jdbcType=DECIMAL}, #{item.costPrice,jdbcType=DECIMAL}, 
+        #{item.keywords,jdbcType=VARCHAR}, #{item.goodsRemark,jdbcType=VARCHAR}, #{item.goodsContent,jdbcType=LONGVARCHAR}, 
+        #{item.originalImg,jdbcType=VARCHAR}, #{item.isReal,jdbcType=TINYINT}, #{item.isOnSale,jdbcType=BOOLEAN}, 
+        #{item.isFreeShipping,jdbcType=BOOLEAN}, #{item.onTime,jdbcType=INTEGER}, #{item.sort,jdbcType=SMALLINT}, 
+        #{item.isRecommend,jdbcType=BOOLEAN}, #{item.isNew,jdbcType=BOOLEAN}, #{item.isHot,jdbcType=BOOLEAN}, 
+        #{item.lastUpdate,jdbcType=INTEGER}, #{item.goodsType,jdbcType=SMALLINT}, #{item.specType,jdbcType=SMALLINT}, 
+        #{item.giveIntegral,jdbcType=INTEGER}, #{item.exchangeIntegral,jdbcType=INTEGER}, 
+        #{item.suppliersId,jdbcType=SMALLINT}, #{item.salesSum,jdbcType=INTEGER}, #{item.promType,jdbcType=BOOLEAN}, 
+        #{item.promId,jdbcType=INTEGER}, #{item.commission,jdbcType=DECIMAL}, #{item.spu,jdbcType=VARCHAR}, 
+        #{item.sku,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="goods_id" keyProperty="goodsId" parameterType="com.xxxx.manager.pojo.TGoods" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      cat_id,
+      extend_cat_id,
+      goods_sn,
+      goods_name,
+      click_count,
+      brand_id,
+      store_count,
+      comment_count,
+      weight,
+      market_price,
+      shop_price,
+      cost_price,
+      keywords,
+      goods_remark,
+      goods_content,
+      original_img,
+      is_real,
+      is_on_sale,
+      is_free_shipping,
+      on_time,
+      sort,
+      is_recommend,
+      is_new,
+      is_hot,
+      last_update,
+      goods_type,
+      spec_type,
+      give_integral,
+      exchange_integral,
+      suppliers_id,
+      sales_sum,
+      prom_type,
+      prom_id,
+      commission,
+      spu,
+      sku,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      #{catId,jdbcType=INTEGER},
+      #{extendCatId,jdbcType=INTEGER},
+      #{goodsSn,jdbcType=VARCHAR},
+      #{goodsName,jdbcType=VARCHAR},
+      #{clickCount,jdbcType=INTEGER},
+      #{brandId,jdbcType=SMALLINT},
+      #{storeCount,jdbcType=SMALLINT},
+      #{commentCount,jdbcType=SMALLINT},
+      #{weight,jdbcType=INTEGER},
+      #{marketPrice,jdbcType=DECIMAL},
+      #{shopPrice,jdbcType=DECIMAL},
+      #{costPrice,jdbcType=DECIMAL},
+      #{keywords,jdbcType=VARCHAR},
+      #{goodsRemark,jdbcType=VARCHAR},
+      #{goodsContent,jdbcType=LONGVARCHAR},
+      #{originalImg,jdbcType=VARCHAR},
+      #{isReal,jdbcType=TINYINT},
+      #{isOnSale,jdbcType=BOOLEAN},
+      #{isFreeShipping,jdbcType=BOOLEAN},
+      #{onTime,jdbcType=INTEGER},
+      #{sort,jdbcType=SMALLINT},
+      #{isRecommend,jdbcType=BOOLEAN},
+      #{isNew,jdbcType=BOOLEAN},
+      #{isHot,jdbcType=BOOLEAN},
+      #{lastUpdate,jdbcType=INTEGER},
+      #{goodsType,jdbcType=SMALLINT},
+      #{specType,jdbcType=SMALLINT},
+      #{giveIntegral,jdbcType=INTEGER},
+      #{exchangeIntegral,jdbcType=INTEGER},
+      #{suppliersId,jdbcType=SMALLINT},
+      #{salesSum,jdbcType=INTEGER},
+      #{promType,jdbcType=BOOLEAN},
+      #{promId,jdbcType=INTEGER},
+      #{commission,jdbcType=DECIMAL},
+      #{spu,jdbcType=VARCHAR},
+      #{sku,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      cat_id = #{catId,jdbcType=INTEGER},
+      extend_cat_id = #{extendCatId,jdbcType=INTEGER},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=SMALLINT},
+      store_count = #{storeCount,jdbcType=SMALLINT},
+      comment_count = #{commentCount,jdbcType=SMALLINT},
+      weight = #{weight,jdbcType=INTEGER},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      shop_price = #{shopPrice,jdbcType=DECIMAL},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      goods_remark = #{goodsRemark,jdbcType=VARCHAR},
+      goods_content = #{goodsContent,jdbcType=LONGVARCHAR},
+      original_img = #{originalImg,jdbcType=VARCHAR},
+      is_real = #{isReal,jdbcType=TINYINT},
+      is_on_sale = #{isOnSale,jdbcType=BOOLEAN},
+      is_free_shipping = #{isFreeShipping,jdbcType=BOOLEAN},
+      on_time = #{onTime,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=SMALLINT},
+      is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      is_new = #{isNew,jdbcType=BOOLEAN},
+      is_hot = #{isHot,jdbcType=BOOLEAN},
+      last_update = #{lastUpdate,jdbcType=INTEGER},
+      goods_type = #{goodsType,jdbcType=SMALLINT},
+      spec_type = #{specType,jdbcType=SMALLINT},
+      give_integral = #{giveIntegral,jdbcType=INTEGER},
+      exchange_integral = #{exchangeIntegral,jdbcType=INTEGER},
+      suppliers_id = #{suppliersId,jdbcType=SMALLINT},
+      sales_sum = #{salesSum,jdbcType=INTEGER},
+      prom_type = #{promType,jdbcType=BOOLEAN},
+      prom_id = #{promId,jdbcType=INTEGER},
+      commission = #{commission,jdbcType=DECIMAL},
+      spu = #{spu,jdbcType=VARCHAR},
+      sku = #{sku,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="goods_id" keyProperty="goodsId" parameterType="com.xxxx.manager.pojo.TGoods" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="catId != null">
+        cat_id,
+      </if>
+      <if test="extendCatId != null">
+        extend_cat_id,
+      </if>
+      <if test="goodsSn != null">
+        goods_sn,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="clickCount != null">
+        click_count,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="storeCount != null">
+        store_count,
+      </if>
+      <if test="commentCount != null">
+        comment_count,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="marketPrice != null">
+        market_price,
+      </if>
+      <if test="shopPrice != null">
+        shop_price,
+      </if>
+      <if test="costPrice != null">
+        cost_price,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="goodsRemark != null">
+        goods_remark,
+      </if>
+      <if test="goodsContent != null">
+        goods_content,
+      </if>
+      <if test="originalImg != null">
+        original_img,
+      </if>
+      <if test="isReal != null">
+        is_real,
+      </if>
+      <if test="isOnSale != null">
+        is_on_sale,
+      </if>
+      <if test="isFreeShipping != null">
+        is_free_shipping,
+      </if>
+      <if test="onTime != null">
+        on_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="isRecommend != null">
+        is_recommend,
+      </if>
+      <if test="isNew != null">
+        is_new,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+      <if test="goodsType != null">
+        goods_type,
+      </if>
+      <if test="specType != null">
+        spec_type,
+      </if>
+      <if test="giveIntegral != null">
+        give_integral,
+      </if>
+      <if test="exchangeIntegral != null">
+        exchange_integral,
+      </if>
+      <if test="suppliersId != null">
+        suppliers_id,
+      </if>
+      <if test="salesSum != null">
+        sales_sum,
+      </if>
+      <if test="promType != null">
+        prom_type,
+      </if>
+      <if test="promId != null">
+        prom_id,
+      </if>
+      <if test="commission != null">
+        commission,
+      </if>
+      <if test="spu != null">
+        spu,
+      </if>
+      <if test="sku != null">
+        sku,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null">
+        #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="extendCatId != null">
+        #{extendCatId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null">
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=SMALLINT},
+      </if>
+      <if test="storeCount != null">
+        #{storeCount,jdbcType=SMALLINT},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=SMALLINT},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="marketPrice != null">
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shopPrice != null">
+        #{shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsRemark != null">
+        #{goodsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsContent != null">
+        #{goodsContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="originalImg != null">
+        #{originalImg,jdbcType=VARCHAR},
+      </if>
+      <if test="isReal != null">
+        #{isReal,jdbcType=TINYINT},
+      </if>
+      <if test="isOnSale != null">
+        #{isOnSale,jdbcType=BOOLEAN},
+      </if>
+      <if test="isFreeShipping != null">
+        #{isFreeShipping,jdbcType=BOOLEAN},
+      </if>
+      <if test="onTime != null">
+        #{onTime,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=SMALLINT},
+      </if>
+      <if test="isRecommend != null">
+        #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="isNew != null">
+        #{isNew,jdbcType=BOOLEAN},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=BOOLEAN},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=INTEGER},
+      </if>
+      <if test="goodsType != null">
+        #{goodsType,jdbcType=SMALLINT},
+      </if>
+      <if test="specType != null">
+        #{specType,jdbcType=SMALLINT},
+      </if>
+      <if test="giveIntegral != null">
+        #{giveIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeIntegral != null">
+        #{exchangeIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="suppliersId != null">
+        #{suppliersId,jdbcType=SMALLINT},
+      </if>
+      <if test="salesSum != null">
+        #{salesSum,jdbcType=INTEGER},
+      </if>
+      <if test="promType != null">
+        #{promType,jdbcType=BOOLEAN},
+      </if>
+      <if test="promId != null">
+        #{promId,jdbcType=INTEGER},
+      </if>
+      <if test="commission != null">
+        #{commission,jdbcType=DECIMAL},
+      </if>
+      <if test="spu != null">
+        #{spu,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null">
+        cat_id = #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="extendCatId != null">
+        extend_cat_id = #{extendCatId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null">
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=SMALLINT},
+      </if>
+      <if test="storeCount != null">
+        store_count = #{storeCount,jdbcType=SMALLINT},
+      </if>
+      <if test="commentCount != null">
+        comment_count = #{commentCount,jdbcType=SMALLINT},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="marketPrice != null">
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shopPrice != null">
+        shop_price = #{shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="costPrice != null">
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsRemark != null">
+        goods_remark = #{goodsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsContent != null">
+        goods_content = #{goodsContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="originalImg != null">
+        original_img = #{originalImg,jdbcType=VARCHAR},
+      </if>
+      <if test="isReal != null">
+        is_real = #{isReal,jdbcType=TINYINT},
+      </if>
+      <if test="isOnSale != null">
+        is_on_sale = #{isOnSale,jdbcType=BOOLEAN},
+      </if>
+      <if test="isFreeShipping != null">
+        is_free_shipping = #{isFreeShipping,jdbcType=BOOLEAN},
+      </if>
+      <if test="onTime != null">
+        on_time = #{onTime,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=SMALLINT},
+      </if>
+      <if test="isRecommend != null">
+        is_recommend = #{isRecommend,jdbcType=BOOLEAN},
+      </if>
+      <if test="isNew != null">
+        is_new = #{isNew,jdbcType=BOOLEAN},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=BOOLEAN},
+      </if>
+      <if test="lastUpdate != null">
+        last_update = #{lastUpdate,jdbcType=INTEGER},
+      </if>
+      <if test="goodsType != null">
+        goods_type = #{goodsType,jdbcType=SMALLINT},
+      </if>
+      <if test="specType != null">
+        spec_type = #{specType,jdbcType=SMALLINT},
+      </if>
+      <if test="giveIntegral != null">
+        give_integral = #{giveIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="exchangeIntegral != null">
+        exchange_integral = #{exchangeIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="suppliersId != null">
+        suppliers_id = #{suppliersId,jdbcType=SMALLINT},
+      </if>
+      <if test="salesSum != null">
+        sales_sum = #{salesSum,jdbcType=INTEGER},
+      </if>
+      <if test="promType != null">
+        prom_type = #{promType,jdbcType=BOOLEAN},
+      </if>
+      <if test="promId != null">
+        prom_id = #{promId,jdbcType=INTEGER},
+      </if>
+      <if test="commission != null">
+        commission = #{commission,jdbcType=DECIMAL},
+      </if>
+      <if test="spu != null">
+        spu = #{spu,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        sku = #{sku,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="querylist"  resultType="TGoods">
+        select <include refid="Base_Column_List"/>
+        from t_goods
+        <where>
+          <if test="brandId != null">
+            and brand_id = #{brandId}
+          </if>
+          <if test="catId != null">
+            and cat_id =#{catId}
+          </if>
+          <if test="goodsName != null and goodsName != ''">
+            and goods_name like concat('%',#{goodsName},'%')
+           </if>
+        </where>
+  </select>
+</mapper>

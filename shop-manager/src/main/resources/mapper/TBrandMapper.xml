@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxxx.manager.mapper.TBrandMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.manager.pojo.TBrand">
+    <!--@mbg.generated-->
+    <!--@Table t_brand-->
+    <id column="id" jdbcType="SMALLINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="desc" jdbcType="LONGVARCHAR" property="desc" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="sort" jdbcType="TINYINT" property="sort" />
+    <result column="cat_name" jdbcType="VARCHAR" property="catName" />
+    <result column="parent_cat_id" jdbcType="INTEGER" property="parentCatId" />
+    <result column="cat_id" jdbcType="INTEGER" property="catId" />
+    <result column="is_hot" jdbcType="BOOLEAN" property="isHot" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, logo, `desc`, url, sort, cat_name, parent_cat_id, cat_id, is_hot
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update t_brand
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="logo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.logo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`desc` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.desc,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="url = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.url,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.sort,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="cat_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.catName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="parent_cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.parentCatId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.catId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="is_hot = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=SMALLINT} then #{item.isHot,jdbcType=BOOLEAN}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=SMALLINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update t_brand
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="logo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.logo != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.logo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`desc` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.desc != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.desc,jdbcType=LONGVARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="url = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.url != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.url,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sort != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.sort,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="cat_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.catName != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.catName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="parent_cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.parentCatId != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.parentCatId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="cat_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.catId != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.catId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="is_hot = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.isHot != null">
+            when id = #{item.id,jdbcType=SMALLINT} then #{item.isHot,jdbcType=BOOLEAN}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=SMALLINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_brand
+    (`name`, logo, `desc`, url, sort, cat_name, parent_cat_id, cat_id, is_hot)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.name,jdbcType=VARCHAR}, #{item.logo,jdbcType=VARCHAR}, #{item.desc,jdbcType=LONGVARCHAR}, 
+        #{item.url,jdbcType=VARCHAR}, #{item.sort,jdbcType=TINYINT}, #{item.catName,jdbcType=VARCHAR}, 
+        #{item.parentCatId,jdbcType=INTEGER}, #{item.catId,jdbcType=INTEGER}, #{item.isHot,jdbcType=BOOLEAN}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.xxxx.manager.pojo.TBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      `name`,
+      logo,
+      `desc`,
+      url,
+      sort,
+      cat_name,
+      parent_cat_id,
+      cat_id,
+      is_hot,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=SMALLINT},
+      </if>
+      #{name,jdbcType=VARCHAR},
+      #{logo,jdbcType=VARCHAR},
+      #{desc,jdbcType=LONGVARCHAR},
+      #{url,jdbcType=VARCHAR},
+      #{sort,jdbcType=TINYINT},
+      #{catName,jdbcType=VARCHAR},
+      #{parentCatId,jdbcType=INTEGER},
+      #{catId,jdbcType=INTEGER},
+      #{isHot,jdbcType=BOOLEAN},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=SMALLINT},
+      </if>
+      `name` = #{name,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=LONGVARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=TINYINT},
+      cat_name = #{catName,jdbcType=VARCHAR},
+      parent_cat_id = #{parentCatId,jdbcType=INTEGER},
+      cat_id = #{catId,jdbcType=INTEGER},
+      is_hot = #{isHot,jdbcType=BOOLEAN},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.xxxx.manager.pojo.TBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="desc != null">
+        `desc`,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="catName != null">
+        cat_name,
+      </if>
+      <if test="parentCatId != null">
+        parent_cat_id,
+      </if>
+      <if test="catId != null">
+        cat_id,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=SMALLINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=TINYINT},
+      </if>
+      <if test="catName != null">
+        #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCatId != null">
+        #{parentCatId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null">
+        #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=SMALLINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        `desc` = #{desc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=TINYINT},
+      </if>
+      <if test="catName != null">
+        cat_name = #{catName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCatId != null">
+        parent_cat_id = #{parentCatId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null">
+        cat_id = #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+</mapper>

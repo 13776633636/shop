@@ -57,13 +57,21 @@
         <dubbo.version>2.7.3</dubbo.version>
         <!--mybatis-plus依赖-->
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <!--okhttp依赖-->
+        <okhttp.version>3.14.2</okhttp.version>
     </properties>
-
 
 
     <!-- 项目依赖管理 父项目只是声明依赖，子项目需要写明需要的依赖(可以省略版本信息) -->
     <dependencyManagement>
         <dependencies>
+            <!--okhttp依赖-->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+                <scope>compile</scope>
+            </dependency>
 
             <!-- mybatis-plus 依赖 -->
             <dependency>

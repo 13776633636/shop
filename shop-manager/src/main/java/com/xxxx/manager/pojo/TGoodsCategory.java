@@ -1,6 +1,7 @@
 package com.xxxx.manager.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -13,7 +14,9 @@ public class TGoodsCategory implements Serializable {
      * 查询用的字段
      *
      */
+    @TableField(exist = false)
     private  Short parent_id_1;
+    @TableField(exist = false)
     private  Short parent_id_2;
 
     public Short getParent_id_1() {
@@ -95,6 +98,7 @@ public class TGoodsCategory implements Serializable {
 
     /*子商品分类
     * */
+    @TableField(exist = false)
     private List<TGoodsCategory> children;
     /**
      * t_goods_category

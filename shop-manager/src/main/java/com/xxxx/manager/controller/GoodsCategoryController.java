@@ -2,13 +2,15 @@ package com.xxxx.manager.controller;
 
 
 import com.xxxx.common.result.BaseResult;
+import com.xxxx.manager.pojo.TBrand;
+import com.xxxx.manager.pojo.TGoods;
 import com.xxxx.manager.pojo.TGoodsCategory;
+import com.xxxx.manager.service.TBrandService;
 import com.xxxx.manager.service.TGoodsCategoryService;
+import com.xxxx.manager.service.TGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +22,11 @@ import java.util.List;
 public class GoodsCategoryController {
     @Autowired
     private TGoodsCategoryService goodsCategoryService;
+    @Autowired
+    private TGoodsService goodsService;
+
+    @Autowired
+    private TBrandService brandService;
 
     /**
      * 商品管理页面
@@ -38,9 +45,9 @@ public class GoodsCategoryController {
     }
 
 
-    /*
+    /**
      * 跳转商品分类的添加页面
-     * */
+     **/
 
     @RequestMapping("category/add")
     public ModelAndView addCategory() {
@@ -59,18 +66,22 @@ public class GoodsCategoryController {
     /**
      * 商品分类-新增分类-级联查询
      *
+     *
      * @param parentId
      * @return
      */
     @ResponseBody
     @RequestMapping("category/{parentId}")
     public List<TGoodsCategory> selectCategoryByParentId(@PathVariable Short parentId) {
+
         List<TGoodsCategory> list = goodsCategoryService.selectCategoryByParentId(parentId);
         return list;
     }
 
+
     /**
      * 商品分类-新增分类-保存分类
+     *
      * @param goodsCategory
      * @return
      */
@@ -82,5 +93,47 @@ public class GoodsCategoryController {
         return b ? BaseResult.success() : BaseResult.error();
     }
 
+    /**
+     * 商品管理-商品列表
+     * 查询TGoodsCategory和TBrand
+     *
+     * @return
+     */
+    @RequestMapping("list")
+    public ModelAndView listGoods() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("goods/goods-list");
+
+        List<TGoodsCategory> list = goodsCategoryService.list();
+        modelAndView.addObject("gcList", list);
+
+        List<TBrand> brandLis = brandService.list();
+        modelAndView.addObject("brandList", brandLis);
+
+        return modelAndView;
+    }
+
+    /**
+     * 商品管理-商品列表 -添加页面
+     *
+     * @return
+     */
+    @RequestMapping("add")
+    public ModelAndView addGoods() {
+        ModelAndView modelAndView = new ModelAndView("goods/goods-add");
+        //查询所有顶级分类
+        List<TGoodsCategory> list = goodsCategoryService.selectCategoryTopList();
+        modelAndView.addObject("gcList", list);
+        List<TBrand> brandLis = brandService.list();
+        modelAndView.addObject("brandList", brandLis);
+        return modelAndView;
+    }
+
+    @ResponseBody
+    @RequestMapping("listForPage")
+    public BaseResult listGoodsForPage(TGoods goods) {
+        BaseResult baseResult = goodsService.selectList(goods);
+        return baseResult;
+    }
 
 }
