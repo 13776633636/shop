@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class TGoodsServiceImpl extends ServiceImpl<TGoodsMapper, TGoods> implements TGoodsService{
+public class TGoodsServiceImpl extends ServiceImpl<TGoodsMapper, TGoods> implements TGoodsService {
 
     @Autowired
     private TGoodsMapper goodsMapper;
@@ -21,18 +22,22 @@ public class TGoodsServiceImpl extends ServiceImpl<TGoodsMapper, TGoods> impleme
     public int updateBatch(List<TGoods> list) {
         return baseMapper.updateBatch(list);
     }
+
     @Override
     public int updateBatchSelective(List<TGoods> list) {
         return baseMapper.updateBatchSelective(list);
     }
+
     @Override
     public int batchInsert(List<TGoods> list) {
         return baseMapper.batchInsert(list);
     }
+
     @Override
     public int insertOrUpdate(TGoods record) {
         return baseMapper.insertOrUpdate(record);
     }
+
     @Override
     public int insertOrUpdateSelective(TGoods record) {
         return baseMapper.insertOrUpdateSelective(record);
@@ -51,6 +56,22 @@ public class TGoodsServiceImpl extends ServiceImpl<TGoodsMapper, TGoods> impleme
         baseResult.setMessage("");
         baseResult.setPageInfo(pageInfo);
 
+        return baseResult;
+    }
+
+    /**
+     * 新增商品
+     *
+     * @param goods
+     * @return
+     */
+    @Override
+    public BaseResult savegoods(TGoods goods) {
+        BaseResult baseResult = new BaseResult();
+        int i = goodsMapper.insertOrUpdateSelective(goods);
+        Integer goodsId = goods.getGoodsId();
+        baseResult.setMessage(goodsId.toString());
+        baseResult.setCode(200);
         return baseResult;
     }
 

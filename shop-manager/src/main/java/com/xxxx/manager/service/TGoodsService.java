@@ -24,4 +24,11 @@ public interface TGoodsService extends IService<TGoods>{
      * @return
      */
     BaseResult selectList(TGoods goods);
+
+    /**
+     * 新增商品
+     * @param goods
+     * @return
+     */
+    BaseResult savegoods(TGoods goods);
 }

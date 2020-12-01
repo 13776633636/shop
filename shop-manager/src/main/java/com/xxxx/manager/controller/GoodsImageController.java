@@ -20,8 +20,9 @@ public class GoodsImageController {
 
     @RequestMapping("save")
     public FileResult fileUpload(@RequestParam(value = "file") MultipartFile image, HttpServletRequest request) {
-
-        return goodsImagesService.fileUpload(image,request);
+        FileResult fileResult = goodsImagesService.fileUpload(image, request);
+        System.out.println(fileResult.getFileUrl());
+        return fileResult;
 
     }
 

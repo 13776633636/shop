@@ -66,7 +66,6 @@ public class GoodsCategoryController {
     /**
      * 商品分类-新增分类-级联查询
      *
-     *
      * @param parentId
      * @return
      */
@@ -134,6 +133,21 @@ public class GoodsCategoryController {
     public BaseResult listGoodsForPage(TGoods goods) {
         BaseResult baseResult = goodsService.selectList(goods);
         return baseResult;
+    }
+
+    /**
+     *
+     * 新增商品
+     * @param goods
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("save")
+    public BaseResult saveGoods(TGoods goods) {
+
+        BaseResult save = goodsService.savegoods(goods);
+
+        return save;
     }
 
 }

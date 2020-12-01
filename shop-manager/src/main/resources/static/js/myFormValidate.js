@@ -24,6 +24,9 @@ function ajax_submit_form(form_id, submit_url, add_url, list_url, hiddenId) {
         },
         success: function (result) {
             before_request = 1; // 标识ajax 请求已经返回
+
+            window.alert("成功");
+
             console.log(result)
             if (200 == result.code) {
                 layer.confirm("保存成功",

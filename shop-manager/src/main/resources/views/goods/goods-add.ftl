@@ -432,7 +432,7 @@
                                         <td>是否包邮:</td>
                                         <td>
                                             是:<input type="radio" value="1" name="isFreeShipping"/>
-                                            否:<input type="radio" checked="checked" value="0" name="is_free_shipping"/>
+                                            否:<input type="radio" checked="checked" value="0" name="isFreeShipping"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -509,7 +509,7 @@
                                     <tr>
                                         <td>商品模型:</td>
                                         <td>
-                                            <select name="goods_type" id="spec_type" class="form-control"
+                                            <select name="goodsType" id="spec_type" class="form-control"
                                                     style="width:250px;">
                                                 <option value="0">选择商品模型</option>
                                                 <option value="33">运营商</option>
@@ -636,6 +636,7 @@
                                                                   ck="mod-1">全国一线城市</label></li>
                                                 <div class="clear-both"></div>
                                             </ul>
+                                        </td>
                                         </td>
                                     </tr>
                                 </table>
