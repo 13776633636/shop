@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxxx.manager.mapper.TGoodsImagesMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.manager.pojo.TGoodsImages">
+    <!--@mbg.generated-->
+    <!--@Table t_goods_images-->
+    <id column="img_id" jdbcType="INTEGER" property="imgId" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    img_id, goods_id, image_url
+  </sql>
+</mapper>
