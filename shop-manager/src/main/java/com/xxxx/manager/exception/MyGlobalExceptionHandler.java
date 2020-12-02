@@ -1,3 +1,4 @@
+/*
 package com.xxxx.manager.exception;
 
 
@@ -41,3 +42,4 @@ public class MyGlobalExceptionHandler {
     }
 
 }
+*/
