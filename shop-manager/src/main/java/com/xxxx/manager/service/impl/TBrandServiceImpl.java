@@ -1,12 +1,13 @@
-package com.xxxx.rpc.service.impl;
+package com.xxxx.manager.service.impl;
 
 import org.springframework.stereotype.Service;
-
+import javax.annotation.Resource;
 import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxxx.manager.mapper.TBrandMapper;
+import java.util.List;
 import com.xxxx.manager.pojo.TBrand;
-import com.xxxx.rpc.service.TBrandService;
+import com.xxxx.manager.service.TBrandService;
 @Service
 public class TBrandServiceImpl extends ServiceImpl<TBrandMapper, TBrand> implements TBrandService{
 

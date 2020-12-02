@@ -1,11 +1,11 @@
-package com.xxxx.rpc.service.impl;
+package com.xxxx.manager.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.result.FileResult;
 import com.xxxx.manager.mapper.TGoodsImagesMapper;
 import com.xxxx.manager.pojo.TGoodsImages;
-import com.xxxx.rpc.service.TGoodsImagesService;
+import com.xxxx.manager.service.TGoodsImagesService;
 import com.xxxx.manager.utils.AssertUtils;
 import com.xxxx.manager.utils.QiniuCloudUtil;
 import org.springframework.stereotype.Service;

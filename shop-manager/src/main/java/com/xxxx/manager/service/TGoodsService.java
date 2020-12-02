@@ -1,4 +1,4 @@
-package com.xxxx.rpc.service;
+package com.xxxx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxxx.common.result.BaseResult;

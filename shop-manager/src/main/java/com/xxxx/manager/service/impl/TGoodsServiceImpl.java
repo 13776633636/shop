@@ -1,4 +1,4 @@
-package com.xxxx.rpc.service.impl;
+package com.xxxx.manager.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.xxxx.common.result.BaseResult;
 import com.xxxx.manager.mapper.TGoodsMapper;
 import com.xxxx.manager.pojo.TGoods;
-import com.xxxx.rpc.service.TGoodsService;
+import com.xxxx.manager.service.TGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

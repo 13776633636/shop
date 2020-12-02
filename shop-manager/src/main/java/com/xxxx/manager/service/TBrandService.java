@@ -1,4 +1,4 @@
-package com.xxxx.rpc.service;
+package com.xxxx.manager.service;
 
 import java.util.List;
 import com.xxxx.manager.pojo.TBrand;

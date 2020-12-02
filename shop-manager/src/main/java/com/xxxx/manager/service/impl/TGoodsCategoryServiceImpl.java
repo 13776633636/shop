@@ -1,10 +1,10 @@
-package com.xxxx.rpc.service.impl;
+package com.xxxx.manager.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxxx.manager.mapper.TGoodsCategoryMapper;
 import com.xxxx.manager.pojo.TGoodsCategory;
-import com.xxxx.rpc.service.TGoodsCategoryService;
+import com.xxxx.manager.service.TGoodsCategoryService;
 import com.xxxx.manager.utils.AssertUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
