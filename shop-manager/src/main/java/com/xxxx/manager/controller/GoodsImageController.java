@@ -3,7 +3,7 @@ package com.xxxx.manager.controller;
 
 import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.result.FileResult;
-import com.xxxx.manager.service.TGoodsImagesService;
+import com.xxxx.rpc.service.TGoodsImagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
