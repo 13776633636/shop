@@ -31,6 +31,11 @@ spring:
         max-wait: 10000                     # 最大连接阻塞等待时间，单位毫秒，默认 -1
         max-idle: 200                       # 最大空闲连接，默认 8
         min-idle: 5                         # 最小空闲连接，默认 0
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          connection-timeout:
 
 dubbo:
   application:
@@ -68,3 +73,7 @@ logging:
 # Redis Key
 # 商品分类列表 Key
 goods.category.list.key: goods:category:list:goodsCategoryList
+
+#elasticsearch
+elasticsearch:
+  address: 192.168.10.100:9200,192.168.10.101:9200,192.168.10.102:9200

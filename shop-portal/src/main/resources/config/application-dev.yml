@@ -116,3 +116,8 @@ mybatis-plus:
   configuration:
     # 自动驼峰命名
     map-underscore-to-camel-case: true
+#关闭es的健康检查
+management:
+  health:
+    elasticsearch:
+      enable: false
