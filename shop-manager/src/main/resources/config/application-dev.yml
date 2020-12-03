@@ -85,6 +85,26 @@ logging:
   level:
     com.xxxx.manager.mapper: debug
 
+dubbo:
+  application:
+    # 应用名称
+    name: comsumer
+  registry:
+    # 注册中心地址
+    address: zookeeper://192.168.10.100:2181
+    # 超时时间，单位毫秒
+    timeout: 6000
+    # 元数据中心
+  metadata-report:
+    address: zookeeper://192.168.10.100:2181
+  protocol:
+    #协议名称
+    name: dubbo
+    #协议端口
+    port: 20881
+  scan:
+    #扫描包的位置
+    base-packages: com.xxxx.manager
 # Mybatis-plus配置
 mybatis-plus:
   #配置Mapper映射文件
@@ -96,3 +116,5 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 
 goods.category.list.key: goods:category:list:goodsCategoeyList
+#用户票据key
+user.ticket: user:userTicket

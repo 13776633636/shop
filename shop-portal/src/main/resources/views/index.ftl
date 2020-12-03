@@ -203,8 +203,8 @@
                                 <div class="loginbox">
                                     <div class="login_icon cf">
                                         <ul>
-                                            <li><a href="#">免费注册</a></li>
-                                            <li><a href="#">用户登录</a></li>
+                                            <li><a href="${ctx}/register">免费注册</a></li>
+                                            <li><a href="${ctx}/login">用户登录</a></li>
                                         </ul>
                                     </div>
 

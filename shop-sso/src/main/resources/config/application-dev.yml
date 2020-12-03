@@ -38,12 +38,12 @@ dubbo:
     name: provider
   registry:
     # 注册中心地址
-    address: zookeeper://192.168.10.100:2181?backup=192.168.10.100:2182,192.168.10.100:2183
+    address: zookeeper://192.168.10.100:2181
     # 超时时间，单位毫秒
     timeout: 6000
     # 元数据中心
   metadata-report:
-    address: zookeeper://192.168.10.100:2181?backup=192.168.10.100:2182,192.168.10.100:2183
+    address: zookeeper://192.168.10.100:2181
   protocol:
     #协议名称
     name: dubbo
@@ -54,16 +54,26 @@ dubbo:
     base-packages: com.xxxx.sso.service
 
 # MyBatis
-mybatis:
-  # 配置 MyBatis数据返回类型别名(默认别名是类名)
-  type-aliases-package: com.xxxx.sso.pojo
-  # 配置 MyBatis Mapper 映射文件
-  mapper-locations: classpath:mapper/*.xml
+#mybatis:
+#  # 配置 MyBatis数据返回类型别名(默认别名是类名)
+#  type-aliases-package: com.xxxx.sso.pojo
+#  # 配置 MyBatis Mapper 映射文件
+#  mapper-locations: classpath:mapper/*.xml
 
 # Mybatis SQL 打印(方法接口所在的包，不是 Mapper.xml 所在的包)
 logging:
   level:
     com.xxxx.manager.mapper: debug
+
+# Mybatis-plus配置
+mybatis-plus:
+  #配置Mapper映射文件
+  mapper-locations: classpath*:/mapper/*.xml
+  # 配置MyBatis数据返回类型别名（默认别名是类名）
+  type-aliases-package: com.xxxx.sso.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
 
 # Redis Key
 #用户票据key

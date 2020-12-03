@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("search")
 public class SearchController {
+//    注入rpc服务
     @Reference(interfaceClass = SearchService.class)
     private SearchService searchService;
 

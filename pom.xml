@@ -61,12 +61,23 @@
         <okhttp.version>3.14.2</okhttp.version>
         <!--elasticsearch依赖-->
         <elasticsearch.version>7.5.0</elasticsearch.version>
+        <!--腾讯云依赖 -->
+        <tencent.version>3.0.111</tencent.version>
+
     </properties>
 
 
     <!-- 项目依赖管理 父项目只是声明依赖，子项目需要写明需要的依赖(可以省略版本信息) -->
     <dependencyManagement>
         <dependencies>
+
+            <!--腾讯云依赖-->
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java</artifactId>
+                <version>${tencent.version}</version>
+            </dependency>
+
             <!--okhttp依赖-->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
