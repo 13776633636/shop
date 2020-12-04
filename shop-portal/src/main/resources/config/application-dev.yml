@@ -71,14 +71,15 @@ spring:
         max-wait: 10000ms                   # 最大连接阻塞等待时间，单位毫秒，默认 -1
         max-idle: 200                       # 最大空闲连接，默认 8
         min-idle: 5                         # 最小空闲连接，默认 0
+    password: root
   # MyBatis
   mvc:
     static-path-pattern: static/**
-#mybatis:
-#  # 配置 MyBatis数据返回类型别名(默认别名是类名)
-#  type-aliases-package: com.xxxx.portal.pojo
-#  # 配置 MyBatis Mapper 映射文件
-#  mapper-locations: classpath:mapper/*.xml
+mybatis:
+  # 配置 MyBatis数据返回类型别名(默认别名是类名)
+  type-aliases-package: com.xxxx.portal.pojo
+  # 配置 MyBatis Mapper 映射文件
+  mapper-locations: classpath:mapper/*.xml
 
 # Mybatis SQL 打印(方法接口所在的包，不是 Mapper.xml 所在的包)
 logging:
@@ -102,7 +103,7 @@ dubbo:
     #协议名称
     name: dubbo
     #协议端口
-    port: 20880
+    port: 20883
   scan:
     #扫描包的位置
     base-packages: com.xxxx.portal
@@ -116,8 +117,11 @@ mybatis-plus:
   configuration:
     # 自动驼峰命名
     map-underscore-to-camel-case: true
-#关闭es的健康检查
+
+#关闭Elasticsearch健康检查
 management:
-  health:
+  health :
     elasticsearch:
-      enable: false
+      enabled: false
+#用户票据key
+user.ticket: user:userTicket

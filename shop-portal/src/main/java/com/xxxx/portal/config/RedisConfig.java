@@ -1,4 +1,5 @@
-package com.xxxx.sso.config;
+package com.xxxx.portal.config;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,9 +8,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-/**
- * redis序列化配置类
- */
 @Configuration
 public class RedisConfig {
 
@@ -28,9 +26,6 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
     }
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
 }

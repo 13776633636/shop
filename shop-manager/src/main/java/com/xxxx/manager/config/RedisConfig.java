@@ -14,13 +14,20 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, Object> restTemplate(LettuceConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory redisConnectionFactory){
+
+        RedisTemplate<String, Object>redisTemplate=new RedisTemplate<>();
+        //为string类型key设置序列器
         redisTemplate.setKeySerializer(new StringRedisSerializer());
+        //为string类型value设置序列器
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        //为hash类型key设置序列器
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        //为hash类型value设置序列器
         redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
     }
+
+
 }

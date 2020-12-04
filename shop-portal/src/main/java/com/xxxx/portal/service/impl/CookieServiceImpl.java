@@ -1,11 +1,8 @@
-package com.xxxx.manager.service.impl;
+package com.xxxx.portal.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.xxxx.common.utils.CookieUtil;
-import com.xxxx.manager.service.CookieService;
-import com.xxxx.common.utils.CookieUtil;
-import com.xxxx.manager.service.CookieService;
-import org.springframework.stereotype.Service;
+import com.xxxx.portal.service.CookieService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +35,8 @@ public class CookieServiceImpl implements CookieService {
     }
 
     @Override
-    public void deleteCookie(HttpServletRequest request, HttpServletResponse response) {
+    public boolean deleteCookie(HttpServletRequest request, HttpServletResponse response) {
         CookieUtil.deleteCookie(request,response,"userTicket");
+        return true;
     }
 }

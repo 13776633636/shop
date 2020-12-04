@@ -19,7 +19,7 @@ public class MyGlobalExceptionHandler {
     public BaseResult exceptionHandler(Exception e) {
         //Map map = new HashMap<>();
         BaseResult resultInfo = new BaseResult();
-
+        System.out.println(e.toString());
         resultInfo.setCode(500);
         resultInfo.setMessage("未解决的异常！");
 

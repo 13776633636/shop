@@ -13,9 +13,19 @@ oss:
 
 # Spring
 spring:
-
-
-
+  # redis 缓存
+  redis:
+    timeout: 10000                          # 连接超时时间
+    host: 192.168.10.100                    # Redis服务器地址
+    port: 6379                              # Redis服务器端口
+    database: 0                             # 选择哪个库，默认0库
+    lettuce:
+      pool:
+        max-active: 1024                    # 最大连接数，默认 8
+        max-wait: 10000                     # 最大连接阻塞等待时间，单位毫秒，默认 -1
+        max-idle: 200                       # 最大空闲连接，默认 8
+        min-idle: 5                         # 最小空闲连接，默认 0
+    password: root
   # 数据源
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -68,40 +78,22 @@ spring:
       template_exception_handler: html_debug
   mvc:
     static-path-pattern: /static/**
-
-  redis:
-    timeout: 10000ms
-    host: 192.168.10.100
-    port: 6379
-    database: 0
-    lettuce:
-      pool:
-        max-active: 1024
-        max-wait: 10000ms
-        max-idle: 200
-        min-idle: 5
-    password: root
 logging:
   level:
     com.xxxx.manager.mapper: debug
-
 dubbo:
+  server: true
   application:
     # 应用名称
-    name: comsumer
+    name: rpc-consumer
   registry:
     # 注册中心地址
-    address: zookeeper://192.168.10.100:2181
-    # 超时时间，单位毫秒
-    timeout: 6000
-    # 元数据中心
-  metadata-report:
-    address: zookeeper://192.168.10.100:2181
+    address: zookeeper://192.168.10.100:2181?backup=192.168.10.100:2182,192.168.10.100:2183
   protocol:
     #协议名称
     name: dubbo
     #协议端口
-    port: 20881
+    port: 20882
   scan:
     #扫描包的位置
     base-packages: com.xxxx.manager

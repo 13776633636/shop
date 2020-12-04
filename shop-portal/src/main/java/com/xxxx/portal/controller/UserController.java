@@ -1,13 +1,14 @@
-package com.xxxx.manager.controller;
+package com.xxxx.portal.controller;
 
 
 import com.github.pagehelper.util.StringUtil;
 import com.xxxx.common.pojo.Admin;
 import com.xxxx.common.result.BaseResult;
-import com.xxxx.manager.service.CookieService;
+import com.xxxx.portal.service.CookieService;
 import com.xxxx.sso.service.SSOService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,7 +37,6 @@ public class UserController {
         }
         return BaseResult.error();
     }
-
     @RequestMapping("logout")
     public String logout(HttpServletRequest request,HttpServletResponse response){
         String ticket=cookieService.getCookie(request);
