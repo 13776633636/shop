@@ -25,25 +25,26 @@ public class SendMessageServiceImpl implements SendMessageService {
     public BaseResult sendMessage(String phoneNumber) {
 
 
-        try {
-            //实例化认证对象，获取签名串
-            Credential cred = new Credential("AKID0r5Io62VAhX6eYiYZS6VdWK3b1HWtIkx", "5vXhAf0GOec9qoLcryqaAO2byB7pIUTd");
-            //实例化Httoprofile对象，调用短信发送的接口的url
+        try{
+
+            Credential cred = new Credential("AKIDxg9PXY2G0Z0A5kkLN9mE1YonWJrG3FqC", "HvJT5RWP2PUTCo9EFzShg6OgiSwpTqUy");
+
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
-//            实例化clientprofile对象
+
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
-//            实例化sms客户端
+
             SmsClient client = new SmsClient(cred, "", clientProfile);
 
             SendSmsRequest req = new SendSmsRequest();
-            String[] phoneNumberSet1 = {"86"+phoneNumber};
+            String[] phoneNumberSet1 = {"8613776633636"};
             req.setPhoneNumberSet(phoneNumberSet1);
 
-            req.setTemplateID("795462");
-            req.setSmsSdkAppid("1400455942");
-            req.setSign("爱玩爱笑");
+            req.setTemplateID("791387");
+            req.setSmsSdkAppid("1400456423");
+            req.setSign("java永远滴神");
+
 //            发送请求
             SendSmsResponse resp = client.SendSms(req);
             if ("ok".equalsIgnoreCase(resp.getSendStatusSet()[0].getCode())){
