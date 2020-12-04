@@ -15,9 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0.0
  */
 @SpringBootApplication
-//开启dubbo
-@EnableDubbo
-//@EnableDubboConfiguration
 @EnableDubbo
 //扫描mapper接口包
 @MapperScan("com.xxxx.sso.mapper")

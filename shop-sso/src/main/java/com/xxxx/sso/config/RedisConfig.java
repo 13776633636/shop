@@ -28,9 +28,4 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
     }
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 }

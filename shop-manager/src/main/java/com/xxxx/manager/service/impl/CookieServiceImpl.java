@@ -1,8 +1,5 @@
 package com.xxxx.manager.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.xxxx.common.utils.CookieUtil;
-import com.xxxx.manager.service.CookieService;
 import com.xxxx.common.utils.CookieUtil;
 import com.xxxx.manager.service.CookieService;
 import org.springframework.stereotype.Service;
