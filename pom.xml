@@ -63,13 +63,21 @@
         <elasticsearch.version>7.5.0</elasticsearch.version>
         <!--腾讯云依赖 -->
         <tencent.version>3.0.111</tencent.version>
-
+        <!--图形验证码的依赖-->
+        <kaptch.version>0.0.9</kaptch.version>
     </properties>
 
 
     <!-- 项目依赖管理 父项目只是声明依赖，子项目需要写明需要的依赖(可以省略版本信息) -->
     <dependencyManagement>
         <dependencies>
+
+            <!-- google kaptcha依赖 -->
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptch.version}</version>
+            </dependency>
 
             <!--腾讯云依赖-->
             <dependency>
@@ -152,8 +160,6 @@
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elasticsearch.version}</version>
             </dependency>
-
-
 
 
         </dependencies>

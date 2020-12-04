@@ -111,7 +111,7 @@
 
         <div id="s_tbar">
             <div class="s_hd">
-                <div class="tbar_lft">您好，欢迎来到EGO商城！<a href="${ctx}/login">请登录</a> | <a href="${ctx}/register">免费注册</a></div>
+                <div class="tbar_lft">您好，欢迎来到EGO商城！<a href="#">请登录</a> | <a href="#">免费注册</a></div>
                 <div class="tbar_rgt">
                     <ul>
                         <li class="first"><a href="#">我的订单</a></li>
@@ -1848,7 +1848,7 @@
                         <div class="form">
                             <div class="tipinfo">填写账户信息，以下信息均为必填</div>
                             <div class="item">
-                                <span class="label">手机号：</span>
+                                <span class="label">手机：</span>
 
                                 <div class="fl">
                                     <input type="text" id="mail" name="email" class="text" tabindex="4"/>
@@ -1911,7 +1911,7 @@
                                 <!--data-cbfn : 回调函数名(必须)-->
                                 <!--data-biz-state : 业务自定义透传参数(可选)-->
                                 <button id="TencentCaptcha"
-                                        data-appid="2086582926"
+                                        data-appid="2095788030"
                                         data-cbfn="callback"
                                         type="button">验证
                                 </button>
@@ -1943,6 +1943,7 @@
 
             <script type="text/javascript" src="${ctx}/static/js/Validate.js"></script>
             <script type="text/javascript" src="${ctx}/static/js/Validate.personal.js"></script>
+            <script type="text/javascript" src="${ctx}/static/js/Validate.entry.js"></script>
 
         </div><!--s_bd end-->
     </div><!--s_bdw end-->

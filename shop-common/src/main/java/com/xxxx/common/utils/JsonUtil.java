@@ -39,6 +39,10 @@ public class JsonUtil {
      * @param <T> 泛型
      */
     public static <T> T jsonStr2Object(String jsonStr, Class<T> clazz) {
+       if (jsonStr == null){
+           return null;
+       }
+
         try {
             return objectMapper.readValue(jsonStr.getBytes("UTF-8"), clazz);
         } catch (JsonParseException e) {

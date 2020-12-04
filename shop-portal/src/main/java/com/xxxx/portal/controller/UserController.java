@@ -1,22 +1,21 @@
-package com.xxxx.manager.controller;
+package com.xxxx.portal.controller;
 
-import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.pojo.TAdmin;
-import com.xxxx.common.utils.CookieUtil;
-import com.xxxx.manager.service.CookieService;
+import com.xxxx.common.result.BaseResult;
+import com.xxxx.portal.service.CookieService;
+import com.xxxx.portal.service.TAdminService;
+import com.xxxx.rpc.service.SendMessageService;
 import com.xxxx.sso.service.SSOService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +28,8 @@ public class UserController {
 
     @Reference(interfaceClass = SSOService.class)
     private SSOService ssoService;
+    @Reference(interfaceClass = SendMessageService.class)
+    private SendMessageService sendMessageService;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -36,6 +37,8 @@ public class UserController {
     private CookieService cookieService;
     @Value("${user.ticket}")
     private String userTicket;
+    @Autowired
+    private TAdminService adminService;
 
 
     @RequestMapping("login")
@@ -64,8 +67,20 @@ public class UserController {
         //删除Cookie
         cookieService.deleteCookie(request,response);
 
-
         return modelAndView;
+    }
+
+    @RequestMapping("register")
+    @ResponseBody
+    public BaseResult register(TAdmin admin){
+        BaseResult baseResult = adminService.saveUser(admin);
+        if (baseResult.getCode()==200){
+            BaseResult baseResult1=sendMessageService.sendMessage(admin.getEmail());
+            if (baseResult1.getCode()==200){
+                return BaseResult.success();
+            }
+        }
+        return BaseResult.error();
     }
 
 }

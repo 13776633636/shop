@@ -2,25 +2,27 @@ package com.xxxx.manager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-/**
- * redis序列化配置类
- */
 @Configuration
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, Object> restTemplate(LettuceConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory connectionFactory){
+        RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
+        //String类型 key序列器
         redisTemplate.setKeySerializer(new StringRedisSerializer());
+        //String类型 value序列器
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        //Hash类型 key序列器
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        //Hash类型 value序列器
         redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        redisTemplate.setConnectionFactory(connectionFactory);
         return redisTemplate;
     }
+
 }

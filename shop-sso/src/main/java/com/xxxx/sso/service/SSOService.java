@@ -11,4 +11,8 @@ public interface SSOService {
      * 验证票据
      */
     TAdmin validdate(String ticket);
+    /**
+     * 退出
+     */
+    void logout(String ticket);
 }

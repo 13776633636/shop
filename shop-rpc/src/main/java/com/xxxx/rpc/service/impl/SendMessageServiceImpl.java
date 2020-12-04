@@ -41,7 +41,7 @@ public class SendMessageServiceImpl implements SendMessageService {
             String[] phoneNumberSet1 = {"86"+phoneNumber};
             req.setPhoneNumberSet(phoneNumberSet1);
 
-            req.setTemplateID("793229");
+            req.setTemplateID("795462");
             req.setSmsSdkAppid("1400455942");
             req.setSign("爱玩爱笑");
 //            发送请求

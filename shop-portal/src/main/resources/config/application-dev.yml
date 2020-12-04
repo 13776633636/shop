@@ -121,3 +121,6 @@ management:
   health:
     elasticsearch:
       enable: false
+
+#用户票据key
+user.ticket: user:userTicket

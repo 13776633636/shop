@@ -1,7 +1,7 @@
-package com.xxxx.manager.service.impl;
+package com.xxxx.portal.service.impl;
 
 import com.xxxx.common.utils.CookieUtil;
-import com.xxxx.manager.service.CookieService;
+import com.xxxx.portal.service.CookieService;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;

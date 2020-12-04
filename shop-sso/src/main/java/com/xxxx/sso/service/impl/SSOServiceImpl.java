@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
  * 单点登录服务实现类
  */
 
+@SuppressWarnings("all")
 @Service(interfaceClass = SSOService.class)
 @Component
 public class SSOServiceImpl implements SSOService {
@@ -29,61 +30,78 @@ public class SSOServiceImpl implements SSOService {
     @Autowired
     private TAdminService adminService;
     @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
     @Value("${user.ticket}")
     private String userTicket;
 
 
     /**
      * 登录认证方法返回ticket
+     *
      * @param admin
      * @return
      */
     @Override
     public String login(TAdmin admin) {
-        if (StringUtils.isEmpty(admin.getUserName())){
+        if (StringUtils.isEmpty(admin.getUserName().trim())) {
             System.out.println("用户名为空");
             return null;
         }
-        if (StringUtils.isEmpty(admin.getPassword())){
+        if (StringUtils.isEmpty(admin.getPassword())) {
             System.out.println("密码为空");
             return null;
         }
         List<TAdmin> user = adminService.getByUserName(admin.getUserName());
-        if (CollectionUtils.isEmpty(user) || user.size()>1){
+        if (CollectionUtils.isEmpty(user) || user.size() > 1) {
             System.out.println("用户名或者密码错误");
             return null;
         }
         TAdmin a = user.get(0);
-        if (!a.getPassword().equals(Md5Util.getMd5WithSalt(admin.getPassword(),a.getEcSalt()))){
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(a);
+
+        if (!a.getPassword().equals(Md5Util.getMd5WithSalt(admin.getPassword(), a.getEcSalt()))) {
             System.out.println("密码错误 ");
             return null;
         }
         //登录成功，返回票据信息，存cookies
-        ValueOperations<String, String> stringStringValueOperations = redisTemplate.opsForValue();
-        String ticke = UUIDUtil.getUUID();
-        stringStringValueOperations.set(userTicket+":"+ticke, JsonUtil.object2JsonStr(a),30, TimeUnit.MINUTES);
-        return ticke;
+        ValueOperations<String, Object> stringStringValueOperations = redisTemplate.opsForValue();
+        String ticket = UUIDUtil.getUUID();
+//        String object2JsonStr = JsonUtil.object2JsonStr(a);
+//        System.out.println(object2JsonStr);
+        System.out.println("======================================================");
+
+        stringStringValueOperations.set(userTicket + ":" + ticket, a, 30, TimeUnit.MINUTES);
+        return ticket;
     }
 
     /**
      * 验证票据信息，返回用户信息
+     *
      * @param ticket
      * @return
      */
     @Override
     public TAdmin validdate(String ticket) {
-        if (StringUtils.isEmpty(ticket)){
+        if (StringUtils.isEmpty(ticket)) {
             System.out.println("票据信息不存在");
             return null;
         }
-        ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
-        String s = opsForValue.get(userTicket + ":" + ticket);
-        if (StringUtils.isEmpty(s)){
-            System.out.println("票据对应的用户信息不存在");
-            return null;
-        }
-        return JsonUtil.jsonStr2Object(s,TAdmin.class);
+        ValueOperations<String, Object> opsForValue = redisTemplate.opsForValue();
+        TAdmin a = (TAdmin) opsForValue.get(userTicket + ":" + ticket);
+//        if (StringUtils.isEmpty(s)){
+//            System.out.println("票据对应的用户信息不存在");
+//            return null;
+//        }
+//        return JsonUtil.jsonStr2Object(s,TAdmin.class);
+        return a;
+    }
 
+    /**
+     * 用户退出
+     */
+    @Override
+    public void logout(String ticket) {
+        redisTemplate.delete(userTicket + ":" + ticket);
     }
 }

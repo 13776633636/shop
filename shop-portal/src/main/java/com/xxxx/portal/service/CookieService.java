@@ -1,4 +1,4 @@
-package com.xxxx.manager.service;
+package com.xxxx.portal.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public interface CookieService {
      * @param ticket
      * @return
      */
-    boolean setCookie(HttpServletRequest request, HttpServletResponse response,String ticket);
+    boolean setCookie(HttpServletRequest request, HttpServletResponse response, String ticket);
 
     /**
      * 获取cookie

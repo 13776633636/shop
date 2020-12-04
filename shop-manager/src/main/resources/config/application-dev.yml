@@ -13,9 +13,6 @@ oss:
 
 # Spring
 spring:
-
-
-
   # 数据源
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -80,7 +77,9 @@ spring:
         max-wait: 10000ms
         max-idle: 200
         min-idle: 5
-    password: root
+#    password: root
+
+
 logging:
   level:
     com.xxxx.manager.mapper: debug
